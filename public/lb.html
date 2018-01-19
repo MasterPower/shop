@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/lb.css"/>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	</head>
+	<body>
+		<h1>
+			<span class="h1_span1"><a href="#">ECSHOP管理中心</a></span>
+			<span class="h1_span1">- 商品列表</span>
+			<span class="h1_span3"><a href="#"><img src="img/jnsy.png"/></a></span>
+			<span class="h1_span4">添加新商品</span>
+		</h1>
+		<div id="form_select">
+			<img src="img/icon_search.gif"/>
+			<select name="" class="select1">
+				<option value="">所有分类</option>
+			</select>
+			<select name="" class="select2">
+				<option value="" >所有品牌</option>
+			</select>
+			<select name="" class="select3">
+				<option value="">全部</option>
+			</select>
+			<select name="" class="select4">
+				<option value="">全部</option>
+			</select>
+			关键字
+			<input type="text" name="text" id="text" value="" />
+			<input type="button" name="btn" id="btn" class="search" value="搜索" />
+		</div>
+		<div id="shop_list">
+			<ul class="shop_list_ul">
+				<li class="shop_list_head shop_list_li">
+					<ul>
+						<li ><input type="checkbox"id="" value="" />编号</li>
+						<li>商品名称</li>
+						<li>货号</li>
+						<li>价格</li>
+						<li>上架</li>
+						<li>精品</li>
+						<li>新品</li>
+						<li>热销</li>
+						<li>推荐排序</li>
+						<li>库存</li>
+						<li>虚拟销量</li>
+						<li>操作</li>
+					</ul>
+				</li>
+				
+				
+			</ul>
+			<div class="shop_list_foot">
+				<ul>
+					<li>总共分为<span class="recordAll"></span>个记录</li>
+					<li>分为<span class="pageAll"></span>页</li>
+					<li>当前第<span class="currentPage"></span>页</li>
+					<li>每页<input type="text" name="counts" id="counts" class="pageRecord" value="4" /></li>
+					<li><a href="#" class="firstpage">第一页</a></li>
+					<li><a href="#" class="uppage">上一页</a></li>
+					<li><a href="#" class="nextpage">下一页</a></li>
+					<li><a href="#" class="lastpage">最末页</a></li>
+					<li>
+						<select name="selectPage" class="selectPage">
+							<option value="1" class="on">1</option>
+						</select>
+					</li>
+				</ul>
+				</div>
+		</div>
+		<div id="shop_list_mes">
+			<p>共执行 7 个查询，用时 0.160207 秒，Gzip 已禁用，内存占用 3.541 MB</p>
+			<p>版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+	$(function(){
+		var shoplistUl = $(".shop_list_ul");
+		var recordAll = $(".recordAll");
+		var pageAll = $(".pageAll");
+		var currentPage = $(".currentPage");
+		var pageRecord = $(".pageRecord");
+		var selectPage = $(".selectPage");
+		var currentOption = $(".selectPage .on").html();
+		var firstPage = $(".firstpage");
+		var lastPage = $(".lastpage");
+		var upPage = $(".uppage");
+		var downPage = $(".nextpage");
+		var keyWord = $("#text").val();
+		var search = $(" .search");
+		send();
+		search.click(function(){
+			keyWord = $("#text").val()
+			var len =$(".selectPage option").length - 1;
+			shoplistUl.children("li:gt(0)").remove();
+			currentOption = "1"
+			send()
+		})
+		
+		var options = $(".selectPage option");
+		//上一页
+		upPage.click(function(){
+			var page = Number(currentPage.html());
+			var len =$(".selectPage option").length - 1;
+			if(page == 1){
+				page = 0;
+			}else{
+				page -= 2; 
+			}
+			skipPage(page,len);
+		})
+		//下一页
+		downPage.click(function(){
+			var page = Number(currentPage.html());
+			var len =$(".selectPage option").length - 1;
+			skipPage(page,len);
+		})
+		//第一页
+		firstPage.click(function(){
+			var len =$(".selectPage option").length - 1;
+			var page = 0;
+			skipPage(page,len);
+		})
+		//最后一页
+		lastPage.click(function(){
+			var len =$(".selectPage option").length - 1;
+			var page = len;
+			skipPage(page,len);
+		})
+		//选择页
+		selectPage.change(function(){
+			var len =$(".selectPage option").length - 1;
+			var page = $(this).children('option:selected').val()-1
+			skipPage(page,len);
+		})
+		
+		pageRecord.keydown(function(e){
+			if(e.keyCode == 13){
+				console.log(pageRecord.val())
+				shoplistUl.children("li").remove();
+				currentOption = "1"
+				selectPage.children("option").eq(0).attr("selected",true);
+				selectPage.children("option").eq(0).siblings().attr("selected",false);
+				send();
+			}
+		})
+		//封装ajax事件
+		function send(){
+			$.ajax({
+			url : "/lb4ajax",
+			type: "post",
+			data:{
+				keyWord : keyWord,
+				pageNow : currentOption,
+				pageRecord : pageRecord.val()
+			},
+			success:function(res){
+				var data = res.res;  
+				for(var key in data){ 
+					var li =""
+					li +=
+					`<li class="shop_list_head shop_list_li">
+						<ul>
+						<li class="shop_num"><input type="checkbox"id="" value="" />141</li>
+						<li class="shop_name">${data[key].goodsname}</li>
+						<li class="shop_hh">${data[key].goodsnum}</li>
+						<li class="shop_price">${data[key].goodsprice}</li>
+						<li><img src="img/yes.gif"/></li>
+						<li><img src="img/yes.gif"/></li>
+						<li><img src="img/yes.gif"/></li>
+						<li><img src="img/yes.gif"/></li>
+						<li>100</li>
+						<li>98</li>
+						<li>${data[key].goodsshop}</li>
+						<li class="shop_use"><a href=""><img src="img/icon_edit.gif" alt="" /></a><a href=""><img src="img/icon_trash.gif"/></a></li>
+						</ul>
+					</li>
+					`
+					
+					shoplistUl.append(li);
+				}
+					var pages = Math.ceil(res.count / pageRecord.val());
+					//获取option数量
+					var optionsLen = $(".selectPage option").length;
+					var len = pages - 1
+					if(pages > optionsLen){
+						for(var k = optionsLen + 1 ; k <= pages ; k ++){
+							var _option = "";
+							_option += `<option value=${k}>${k}</option>`
+							selectPage.append(_option);	
+						}
+					}else{
+						selectPage.children("option:gt("+len+")").remove()
+					}
+					currentPage.html(currentOption)
+					pageAll.html(pages);
+					recordAll.html(res.count);
+				}
+			})
+		}
+		
+		//封装跳转
+		function skipPage(page,len){
+			selectPage.children("option").eq(page).attr("selected",true);
+			selectPage.children("option").eq(page).addClass("on").siblings().removeClass().attr("selected",false);
+			currentOption = $(".selectPage .on").html()	
+			shoplistUl.children("li").remove();
+			send()
+	
+		}
+	})	
+	</script>
+</html>

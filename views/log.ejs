@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/>
+	</head>
+	<body>
+		<div id="body">
+			<div id="logo">
+				<img src="img/shopex.png"/>
+			</div>
+			<div id="log">
+				<div class="ecseop">
+					<img src="img/ecshop-logo.png"/>
+				</div>
+				<div class="login_min">
+					<form action="" method="post">
+						<div><span class="iconfont icon-yonghutouxiang"></span><input type="text" name="username" id="username" placeholder="用户名" /></div>
+						<div><span class="iconfont icon-mima"></span><input type="password" name="psw" id="psw" placeholder="密码" /></div>
+						<div><span class="iconfont icon-ecurityCode"></span><input type="text"  id="" placeholder="验证码" /><i class="code"></i></div>
+						<div class="login"><input type="button" class="btn" onclick="log()" value="登录" /></div>
+						<p>
+							<input type="checkbox"/>保存登录信息
+							<a href="">去店铺首页>></a>
+							<a href="">忘记密码？</a>
+						</p>
+					</form>
+				</div>
+				<div class="bottom"><img src="img/icloud-bar.png"/></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var str = "QWERTYUIOPLKJHGFDSAZXCVBNM";
+		var newstr = "";
+		for(var i = 0 ; i<4 ; i++){
+			var num = Math.floor(Math.random()*25+1);
+			newstr += str[num];
+		}
+		$(".code").html(newstr);
+	</script>
+	<script type="text/javascript">
+		function log(){
+			$.ajax({
+				type:"post",
+				url:"/api/log4ajax",
+				data:{
+					username:$("#username").val(),
+					psw:$("#psw").val()
+				},
+				success:function(res){
+					console.log(res);
+					if(res.code == 1){
+						location.href = "/index2";
+					}else{
+						alert(res.message);
+					}
+				}
+			});
+		}
+	</script>
+</html>

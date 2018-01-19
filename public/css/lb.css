@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body, html {
+  background: url(../img/body_bj.jpg);
+  padding: 10px;
+  min-width: 773px;
+  font-family: Microsoft Yahei; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+input {
+  outline: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100; }
+
+strong, b {
+  font-weight: 100; }
+
+i, em {
+  font-style: none; }
+
+h1 {
+  border-bottom: 1px solid #ccc;
+  color: #333;
+  font-weight: normal;
+  padding: 7px 10px;
+  margin: 0 0 10px 0;
+  overflow: hidden; }
+  h1 .h1_span1 {
+    color: #4c4c4c;
+    font-size: 18px;
+    font-weight: normal; }
+    h1 .h1_span1 a:link {
+      color: #333;
+      outline: none; }
+  h1 .h1_span3 {
+    margin-top: 5px; }
+  h1 .h1_span4 {
+    float: right;
+    margin-top: 10px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 10px 0 23px;
+    background: #c43926 url(../img/icon_add02.gif) no-repeat 6px center;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer; }
+
+#form_select {
+  background: #f3f3f3 url(../img/th_bg.gif) repeat-x;
+  border: 1px solid #ddd;
+  padding: 5px;
+  color: #808080;
+  margin: 0 0 10px 0;
+  font-size: 12px; }
+  #form_select select {
+    height: 21px; }
+  #form_select .select1 {
+    width: 164px; }
+  #form_select .select2 {
+    width: 107px; }
+  #form_select .select3 {
+    width: 75px; }
+  #form_select .select4 {
+    width: 51px; }
+  #form_select #btn {
+    padding: 5px 15px 5px;
+    margin: 2px 2px;
+    border: none;
+    background: #ff3f3f;
+    color: #FFF;
+    cursor: pointer;
+    border-radius: 3px; }
+
+#shop_list .shop_list_ul .shop_list_li {
+  background: white;
+  clear: both;
+  height: 45px;
+  width: 100%; }
+#shop_list .shop_list_ul .shop_list_head ul {
+  width: 100%;
+  height: 45px;
+  background: #f3f3f3 url("../images/th_bg.gif") repeat-x; }
+  #shop_list .shop_list_ul .shop_list_head ul li {
+    float: left;
+    font-size: 12px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    background: #f3f3f3 url("../images/th_bg.gif") repeat-x;
+    white-space: nowrap;
+    border: 1px solid #eee; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(1) {
+    width: 85px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(2) {
+    width: 257px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(3) {
+    width: 114px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(4) {
+    width: 98px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(5) {
+    width: 45px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(6) {
+    width: 45px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(7) {
+    width: 45px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(8) {
+    width: 45px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(9) {
+    width: 73px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(10) {
+    width: 45px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(11) {
+    width: 73px; }
+  #shop_list .shop_list_ul .shop_list_head ul li:nth-of-type(12) {
+    width: 110px; }
+#shop_list .shop_list_foot {
+  border: 1px solid #eee;
+  font-size: 12px;
+  height: 50px;
+  background: white;
+  line-height: 46px;
+  width: 100%; }
+  #shop_list .shop_list_foot ul {
+    width: 600px;
+    margin-right: 100px;
+    float: right; }
+    #shop_list .shop_list_foot ul li {
+      float: left; }
+      #shop_list .shop_list_foot ul li a {
+        color: black; }
+      #shop_list .shop_list_foot ul li select {
+        width: 40px;
+        margin-right: 120px; }
+      #shop_list .shop_list_foot ul li input {
+        width: 35px;
+        text-align: center; }
+    #shop_list .shop_list_foot ul li:nth-of-type(5) a {
+      padding-left: 20px; }
+
+#shop_list_mes {
+  width: 100%;
+  height: 55px;
+  font-size: 12px;
+  line-height: 20px;
+  background: #f3f3f3 url("../images/th_bg.gif") repeat-x;
+  border: 1px solid #ddd;
+  padding: 15px;
+  color: #9CACAF;
+  margin: 10px 0;
+  text-align: center;
+  padding-top: 10px; }
+
+/*# sourceMappingURL=lb.css.map */

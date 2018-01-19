@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body, html {
+  width: 100%;
+  height: 100%; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+input {
+  outline: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100; }
+
+strong, b {
+  font-weight: 100; }
+
+i, em {
+  font-style: none; }
+
+#body {
+  width: 100%;
+  height: 100%;
+  background: url(../img/ecshop-bg.png) no-repeat center center;
+  background-size: cover; }
+
+#logo {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  width: 155px;
+  height: 38px; }
+
+#log {
+  width: 475px;
+  height: 507px;
+  position: absolute;
+  top: 10%;
+  left: 35%; }
+  #log .ecseop {
+    width: 380px;
+    height: 65px; }
+    #log .ecseop img {
+      width: 248px;
+      height: 65px;
+      margin-left: 88px; }
+  #log .login_min {
+    width: 442px;
+    height: 312px;
+    background: #eee;
+    margin-top: 33px;
+    padding-top: 40px; }
+    #log .login_min form {
+      display: block;
+      width: 302px;
+      margin-left: 70px; }
+      #log .login_min form div {
+        width: 302px;
+        height: 53px;
+        position: relative; }
+        #log .login_min form div span {
+          width: 20px;
+          height: 20px;
+          display: block;
+          position: absolute;
+          top: 15px;
+          left: 20px; }
+        #log .login_min form div i {
+          width: 104px;
+          height: 36px;
+          text-align: center;
+          line-height: 36px;
+          color: white;
+          font-weight: bold;
+          display: block;
+          background: rgba(0, 0, 0, 0.6);
+          position: absolute;
+          top: 9px;
+          right: 9px; }
+        #log .login_min form div input {
+          width: 242px;
+          border: 1px solid #bbb;
+          height: 53px;
+          padding-left: 60px;
+          color: #999; }
+        #log .login_min form div input:nth-of-type(5) {
+          width: 15px;
+          height: 15px;
+          float: left; }
+      #log .login_min form div:nth-of-type(4) input {
+        width: 304px;
+        text-align: center;
+        margin-top: 20px;
+        padding-left: 0px;
+        background: #fc7878;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        color: white;
+        font-size: 16px; }
+      #log .login_min form p {
+        font-size: 14px;
+        height: 40px;
+        line-height: 40px;
+        width: 302px;
+        color: #999;
+        margin-top: 20px; }
+        #log .login_min form p input {
+          float: left;
+          margin: 12px; }
+        #log .login_min form p a {
+          float: right;
+          font-size: 12px;
+          color: dodgerblue;
+          margin-right: 15px; }
+        #log .login_min form p a:hover {
+          text-decoration: underline; }
+  #log .bottom {
+    width: 475px;
+    height: 20px;
+    position: absolute;
+    bottom: 45px;
+    right: 16px; }
+
+/*# sourceMappingURL=login.css.map */
